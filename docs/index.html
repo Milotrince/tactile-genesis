@@ -124,6 +124,60 @@
     </div>
   </section>
 
+  <!-- ===================== INTERACTIVE ROLLOUTS ===================== -->
+  <section class="section">
+    <div class="container">
+      <h2>Interactive Teacher Rollouts</h2>
+      <p class="rollout__intro">
+        Privileged teacher policies replayed in the browser. Each replay carries the scene geometry and the per-step
+        link poses, so the camera orbits and the trajectory scrubs with no server and no simulator running. Pick a
+        task and an object variant to load it.
+      </p>
+      <div class="rollout">
+        <div class="rollout__row">
+          <span class="rollout__label">In-hand repose &middot; Wuji</span>
+          <button class="rollout__pick" type="button" aria-pressed="true"
+                  data-src="static/rollouts/in_hand_repose-wuji-cube.html">Cube</button>
+          <button class="rollout__pick" type="button" aria-pressed="false"
+                  data-src="static/rollouts/in_hand_repose-wuji-tall-box.html">Tall box</button>
+          <button class="rollout__pick" type="button" aria-pressed="false"
+                  data-src="static/rollouts/in_hand_repose-wuji-cylinder.html">Cylinder</button>
+        </div>
+        <div class="rollout__row">
+          <span class="rollout__label">In-fingers rotate &middot; Sharpa</span>
+          <button class="rollout__pick" type="button" aria-pressed="false"
+                  data-src="static/rollouts/in_fingers_rotate-sharpa-cube.html">Cube</button>
+          <button class="rollout__pick" type="button" aria-pressed="false"
+                  data-src="static/rollouts/in_fingers_rotate-sharpa-tall-box.html">Tall box</button>
+          <button class="rollout__pick" type="button" aria-pressed="false"
+                  data-src="static/rollouts/in_fingers_rotate-sharpa-cylinder.html">Cylinder</button>
+        </div>
+        <div class="rollout__row">
+          <span class="rollout__label">Grasp and lift &middot; Allegro</span>
+          <button class="rollout__pick" type="button" aria-pressed="false"
+                  data-src="static/rollouts/grasp_lift-allegro-cube.html">Cube</button>
+          <button class="rollout__pick" type="button" aria-pressed="false"
+                  data-src="static/rollouts/grasp_lift-allegro-tall-box.html">Tall box</button>
+          <button class="rollout__pick" type="button" aria-pressed="false"
+                  data-src="static/rollouts/grasp_lift-allegro-cylinder.html">Cylinder</button>
+        </div>
+        <div class="rollout__stage">
+          <iframe class="rollout__frame" title="Interactive policy rollout" loading="lazy"
+                  src="static/rollouts/in_hand_repose-wuji-cube.html"></iframe>
+          <div class="rollout__loading" role="status" aria-live="polite">
+            <div class="rollout__spinner"></div>
+            <span>Loading replay&hellip;</span>
+          </div>
+        </div>
+      </div>
+      <p class="caption">
+        One episode per replay, recorded every second control step. The same three object variants &mdash; a cube, an
+        elongated box, and a cylinder &mdash; are shown for each hand and task, drawn from the seventeen-variant
+        randomized set the policies were trained against.
+      </p>
+    </div>
+  </section>
+
   <!-- ===================== KEY FINDINGS ===================== -->
   <section class="section section--alt">
     <div class="container">
@@ -201,6 +255,47 @@
       </p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      const rollout = document.querySelector('.rollout');
+      if (!rollout) return;
+      const frame = rollout.querySelector('.rollout__frame');
+      const loading = rollout.querySelector('.rollout__loading');
+      // The replay carries its scene geometry inline, so the load event only means the
+      // markup arrived -- Viser still has to decode it and start drawing. Wait for the
+      // canvas it mounts, and give up after a while so a failure cannot spin forever.
+      // Same-origin, so reaching into the document is allowed; guarded regardless.
+      frame.addEventListener('load', function () {
+        const deadline = Date.now() + 30000;
+        (function waitForCanvas() {
+          let ready = false;
+          try {
+            const canvas = frame.contentDocument.querySelector('canvas');
+            ready = !!canvas && canvas.width > 0;
+          } catch (err) {
+            ready = true;
+          }
+          if (ready || Date.now() > deadline) {
+            // The canvas mounts before the geometry finishes decoding, so let the first
+            // frames land rather than handing over a viewport that is still empty.
+            setTimeout(function () { loading.hidden = true; }, 600);
+          } else {
+            setTimeout(waitForCanvas, 150);
+          }
+        })();
+      });
+      rollout.addEventListener('click', function (event) {
+        const pick = event.target.closest('.rollout__pick');
+        if (!pick || pick.getAttribute('aria-pressed') === 'true') return;
+        rollout.querySelectorAll('.rollout__pick').forEach(function (other) {
+          other.setAttribute('aria-pressed', String(other === pick));
+        });
+        loading.hidden = false;
+        frame.src = pick.dataset.src;
+      });
+    })();
+  </script>
 
 </body>
 </html>
