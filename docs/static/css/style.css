@@ -276,13 +276,18 @@ figcaption {
 .rollout__label { flex: 0 0 210px; font-weight: 600; font-size: 0.92rem; }
 /* Side by side once there is room for the viewer to stay usefully wide. */
 @media (min-width: 900px) {
-  .rollout { grid-template-columns: minmax(250px, 290px) 1fr; align-items: start; }
-  .rollout__row { display: block; margin-bottom: 18px; }
-  .rollout__label { display: block; margin-bottom: 8px; }
+  .rollout { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; align-items: start; }
+  .rollout__row { display: block; margin-bottom: 0; }
+  .rollout__label { display: block; margin-bottom: 10px; }
   .rollout__pick { margin: 0 6px 6px 0; }
-  .rollout__stage { margin-top: 0; }
+  /* Upgraded in place where the viewer can actually be framed. */
+  .rollout--embedded { grid-template-columns: minmax(250px, 290px) 1fr; }
+  .rollout--embedded .rollout__row { margin-bottom: 18px; }
+  .rollout--embedded .rollout__stage { margin-top: 0; }
 }
 .rollout__pick {
+  display: inline-block;
+  text-decoration: none;
   border: 1px solid var(--border);
   background: #fff;
   color: var(--fg);
@@ -293,7 +298,7 @@ figcaption {
   cursor: pointer;
 }
 .rollout__pick:hover { border-color: var(--accent); color: var(--accent); }
-.rollout__pick[aria-pressed="true"] { background: var(--fg); border-color: var(--fg); color: #fff; }
+.rollout__pick[aria-current="true"] { background: var(--fg); border-color: var(--fg); color: #fff; }
 .rollout__stage {
   position: relative;
   margin-top: 18px;

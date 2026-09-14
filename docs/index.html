@@ -24,12 +24,9 @@
   <header class="hero">
     <div class="container">
       <h2 class="title">Tactile&nbsp;Genesis</h2>
-      <p class="subtitle">Exploring Tactile Sensors at Scale for Learning Dexterous Tasks</p>
+      <p class="subtitle">Simulating Tactile Sensors at Scale for Exploring Dexterous Task Learning</p>
 
-      <p class="anon">Anonymous authors &middot; paper under double-blind review</p>
-
-      <!-- <p class="venue">CoRL 2026</p> -->
-
+      <p class="anon">Anonymous authors</p>
 
       <div class="links">
         <a class="btn" href="https://anonymous.4open.science/r/icra-tactile-genesis" target="_blank" rel="noopener">
@@ -93,6 +90,39 @@
     </div>
   </section>
 
+
+  <!-- ===================== INTERACTIVE ROLLOUTS ===================== -->
+  <section class="section">
+    <div class="container">
+      <h2>Interactive Teacher Rollouts</h2>
+      <p class="rollout__intro">
+        Privileged teacher policies replayed in the browser. Each replay carries the scene geometry and the per-step
+        link poses, so the camera orbits and the trajectory scrubs with no server and no simulator running. Pick a
+        task and an object variant. <span class="rollout__hint">They open in a new tab.</span>
+      </p>
+      <div class="rollout">
+        <div class="rollout__row">
+          <span class="rollout__label">In-hand repose &middot; Wuji</span>
+          <a class="rollout__pick" href="static/rollouts/in_hand_repose-wuji-cube.html" target="_blank" rel="noopener">Cube <span aria-hidden="true">&#8599;</span></a>
+          <a class="rollout__pick" href="static/rollouts/in_hand_repose-wuji-tall-box.html" target="_blank" rel="noopener">Box <span aria-hidden="true">&#8599;</span></a>
+          <a class="rollout__pick" href="static/rollouts/in_hand_repose-wuji-cylinder.html" target="_blank" rel="noopener">Cylinder <span aria-hidden="true">&#8599;</span></a>
+        </div>
+        <div class="rollout__row">
+          <span class="rollout__label">In-fingers rotate &middot; Sharpa</span>
+          <a class="rollout__pick" href="static/rollouts/in_fingers_rotate-sharpa-cube.html" target="_blank" rel="noopener">Cube <span aria-hidden="true">&#8599;</span></a>
+          <a class="rollout__pick" href="static/rollouts/in_fingers_rotate-sharpa-tall-box.html" target="_blank" rel="noopener">Box <span aria-hidden="true">&#8599;</span></a>
+          <a class="rollout__pick" href="static/rollouts/in_fingers_rotate-sharpa-cylinder.html" target="_blank" rel="noopener">Cylinder <span aria-hidden="true">&#8599;</span></a>
+        </div>
+        <div class="rollout__row">
+          <span class="rollout__label">Grasp and lift &middot; Allegro</span>
+          <a class="rollout__pick" href="static/rollouts/grasp_lift-allegro-cube.html" target="_blank" rel="noopener">Cube <span aria-hidden="true">&#8599;</span></a>
+          <a class="rollout__pick" href="static/rollouts/grasp_lift-allegro-tall-box.html" target="_blank" rel="noopener">Box <span aria-hidden="true">&#8599;</span></a>
+          <a class="rollout__pick" href="static/rollouts/grasp_lift-allegro-cylinder.html" target="_blank" rel="noopener">Cylinder <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== RESULTS FIGURE ===================== -->
   <section class="section">
     <div class="container">
@@ -104,97 +134,6 @@
           and <code>screwdriver</code> on the XHand1, we compare tactile data types against the privileged teacher and
           distilled tactile student, varying placement (tips / fingers / whole hand), resolution, and noise.
         </figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ===================== INTERACTIVE ROLLOUTS ===================== -->
-  <section class="section">
-    <div class="container">
-      <h2>Interactive Teacher Rollouts</h2>
-      <p class="rollout__intro">
-        Privileged teacher policies replayed in the browser. Each replay carries the scene geometry and the per-step
-        link poses, so the camera orbits and the trajectory scrubs with no server and no simulator running. Pick a
-        task and an object variant to load it.
-      </p>
-      <div class="rollout">
-        <div class="rollout__picker">
-          <div class="rollout__row">
-            <span class="rollout__label">In-hand repose &middot; Wuji</span>
-            <button class="rollout__pick" type="button" aria-pressed="true"
-                    data-src="static/rollouts/in_hand_repose-wuji-cube.html">Cube</button>
-            <button class="rollout__pick" type="button" aria-pressed="false"
-                    data-src="static/rollouts/in_hand_repose-wuji-tall-box.html">Tall box</button>
-            <button class="rollout__pick" type="button" aria-pressed="false"
-                    data-src="static/rollouts/in_hand_repose-wuji-cylinder.html">Cylinder</button>
-          </div>
-          <div class="rollout__row">
-            <span class="rollout__label">In-fingers rotate &middot; Sharpa</span>
-            <button class="rollout__pick" type="button" aria-pressed="false"
-                    data-src="static/rollouts/in_fingers_rotate-sharpa-cube.html">Cube</button>
-            <button class="rollout__pick" type="button" aria-pressed="false"
-                    data-src="static/rollouts/in_fingers_rotate-sharpa-tall-box.html">Tall box</button>
-            <button class="rollout__pick" type="button" aria-pressed="false"
-                    data-src="static/rollouts/in_fingers_rotate-sharpa-cylinder.html">Cylinder</button>
-          </div>
-          <div class="rollout__row">
-            <span class="rollout__label">Grasp and lift &middot; Allegro</span>
-            <button class="rollout__pick" type="button" aria-pressed="false"
-                    data-src="static/rollouts/grasp_lift-allegro-cube.html">Cube</button>
-            <button class="rollout__pick" type="button" aria-pressed="false"
-                    data-src="static/rollouts/grasp_lift-allegro-tall-box.html">Tall box</button>
-            <button class="rollout__pick" type="button" aria-pressed="false"
-                    data-src="static/rollouts/grasp_lift-allegro-cylinder.html">Cylinder</button>
-          </div>
-        </div>
-        <div class="rollout__stage">
-          <iframe class="rollout__frame" title="Interactive policy rollout" loading="lazy"
-                  src="static/rollouts/in_hand_repose-wuji-cube.html"></iframe>
-          <div class="rollout__loading" role="status" aria-live="polite">
-            <div class="rollout__spinner"></div>
-            <span>Loading replay&hellip;</span>
-          </div>
-        </div>
-      </div>
-      <p class="caption">
-        One episode per replay, recorded every second control step. The same three object variants &mdash; a cube, an
-        elongated box, and a cylinder &mdash; are shown for each hand and task, drawn from the seventeen-variant
-        randomized set the policies were trained against.
-      </p>
-    </div>
-  </section>
-
-  <!-- ===================== KEY FINDINGS ===================== -->
-  <section class="section section--alt">
-    <div class="container">
-      <h2>Key Findings</h2>
-      <div class="cards">
-        <div class="card">
-          <div class="card__num">01</div>
-          <h3>Proprioception is not enough</h3>
-          <p>The proprioception-only baseline trails every tactile student on all three tasks.
-          Touch is required to recover task-relevant object state.</p>
-        </div>
-        <div class="card">
-          <div class="card__num">02</div>
-          <h3>Placement &gt; sensor type</h3>
-          <p>Fingertip-only sensing (what most commercial hardware supports) trails whole-hand coverage by a wide
-          margin. Sensorizing palm and proximal phalanges matters more than upgrading the fingertip sensor.</p>
-        </div>
-        <div class="card">
-          <div class="card__num">03</div>
-          <h3>Force/torque is a robust default</h3>
-          <p>Aggregated across tasks, per-taxel force/torque matches or outperforms every other tactile representation.</p>
-        </div>
-        <div class="card">
-          <div class="card__num">04</div>
-          <h3>Coverage &gt; resolution</h3>
-          <p>Resolution matters far less than coverage. Roughly 200 taxels spread across the whole hand suffice across
-          all tasks studied.</p>
-        </div>
-      </div>
-      <figure class="key-findings-figure">
-        <img src="static/images/comparison.png" alt="Comparison figure for tactile sensing results" loading="lazy">
       </figure>
     </div>
   </section>
@@ -216,7 +155,7 @@
     </div>
   </section>
 
-  <!-- ===================== BIBTEX ===================== -->
+  <!-- ===================== BIBTEX =====================
   <section class="section section--alt">
     <div class="container container--narrow">
       <h2>BibTeX</h2>
@@ -228,7 +167,7 @@
   year      = {2026}
 }</code></pre>
     </div>
-  </section>
+  </section> -->
 
   <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
@@ -243,16 +182,35 @@
   <script>
     (function () {
       const rollout = document.querySelector('.rollout');
-      if (!rollout) return;
-      const frame = rollout.querySelector('.rollout__frame');
-      const loading = rollout.querySelector('.rollout__loading');
-      // The replay carries its scene geometry inline, so the load event only means the
-      // markup arrived -- Viser still has to decode it and start drawing. Wait for the
-      // canvas it mounts, and give up after a while so a failure cannot spin forever.
-      // Same-origin, so reaching into the document is allowed; guarded regardless.
+      // A page forced into an opaque origin cannot frame same-site documents: the host sends
+      // X-Frame-Options SAMEORIGIN, which a null origin can never satisfy. anonymous.4open.science
+      // sandboxes every file that way, so there the links below are the whole feature.
+      if (!rollout || window.origin === 'null') return;
+      const links = Array.from(rollout.querySelectorAll('.rollout__pick'));
+      if (!links.length) return;
+
+      const picker = document.createElement('div');
+      picker.className = 'rollout__picker';
+      while (rollout.firstElementChild) picker.appendChild(rollout.firstElementChild);
+      const stage = document.createElement('div');
+      stage.className = 'rollout__stage';
+      stage.innerHTML =
+        '<iframe class="rollout__frame" title="Interactive policy rollout" loading="lazy"></iframe>' +
+        '<div class="rollout__loading" role="status" aria-live="polite">' +
+        '<div class="rollout__spinner"></div><span>Loading replay\u2026</span></div>';
+      rollout.append(picker, stage);
+      rollout.classList.add('rollout--embedded');
+
+      const hint = document.querySelector('.rollout__hint');
+      if (hint) hint.textContent = 'Middle-click to open one in its own tab instead.';
+
+      const frame = stage.querySelector('.rollout__frame');
+      const loading = stage.querySelector('.rollout__loading');
+      // The replay carries its geometry inline, so load only means the markup arrived --
+      // Viser still has to decode it. Wait for the canvas, then let the first frames land.
       frame.addEventListener('load', function () {
         const deadline = Date.now() + 30000;
-        (function waitForCanvas() {
+        (function wait() {
           let ready = false;
           try {
             const canvas = frame.contentDocument.querySelector('canvas');
@@ -261,23 +219,27 @@
             ready = true;
           }
           if (ready || Date.now() > deadline) {
-            // The canvas mounts before the geometry finishes decoding, so let the first
-            // frames land rather than handing over a viewport that is still empty.
             setTimeout(function () { loading.hidden = true; }, 600);
           } else {
-            setTimeout(waitForCanvas, 150);
+            setTimeout(wait, 150);
           }
         })();
       });
-      rollout.addEventListener('click', function (event) {
-        const pick = event.target.closest('.rollout__pick');
-        if (!pick || pick.getAttribute('aria-pressed') === 'true') return;
-        rollout.querySelectorAll('.rollout__pick').forEach(function (other) {
-          other.setAttribute('aria-pressed', String(other === pick));
+
+      function select(link) {
+        links.forEach(function (other) {
+          other.setAttribute('aria-current', other === link ? 'true' : 'false');
         });
         loading.hidden = false;
-        frame.src = pick.dataset.src;
+        frame.src = link.getAttribute('href');
+      }
+      rollout.addEventListener('click', function (event) {
+        const link = event.target.closest('.rollout__pick');
+        if (!link || event.metaKey || event.ctrlKey || event.shiftKey) return;
+        event.preventDefault();
+        if (link.getAttribute('aria-current') !== 'true') select(link);
       });
+      select(links[0]);
     })();
   </script>
 
