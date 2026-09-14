@@ -26,29 +26,13 @@
       <h2 class="title">Tactile&nbsp;Genesis</h2>
       <p class="subtitle">Exploring Tactile Sensors at Scale for Learning Dexterous Tasks</p>
 
-      <ul class="authors">
-        <li><a href="https://trinityjchung.com" target="_blank" rel="noopener">Trinity Chung</a><sup>1</sup></li>
-        <li><a href="https://kashu7100.github.io" target="_blank" rel="noopener">Kashu Yamazaki</a><sup>1</sup></li>
-        <li>Dhruv Patel<sup>1</sup></li>
-        <li>Alexis Duburcq<sup>2</sup></li>
-        <li>Yiling Qiao<sup>2</sup></li>
-        <li><a href="https://www.cs.cmu.edu/~katef/" target="_blank" rel="noopener">Katerina Fragkiadaki</a><sup>1</sup></li>
-        <li><a href="https://anayebi.github.io" target="_blank" rel="noopener">Aran Nayebi</a><sup>1</sup></li>
-      </ul>
-
-      <ul class="affiliations">
-        <li><sup>1</sup>Carnegie Mellon University</li>
-        <li><sup>2</sup><a href="https://www.genesis.ai" target="_blank" rel="noopener">Genesis AI</a></li>
-      </ul>
+      <p class="anon">Anonymous authors &middot; paper under double-blind review</p>
 
       <!-- <p class="venue">CoRL 2026</p> -->
 
 
       <div class="links">
-        <a class="btn" href="https://arxiv.org/abs/2606.22332" target="_blank" rel="noopener">
-          <span class="ico">&#128196;</span> Paper
-        </a>
-        <a class="btn" href="https://github.com/neuroagents-lab/2026-tactile-genesis" target="_blank" rel="noopener">
+        <a class="btn" href="https://anonymous.4open.science/r/icra-tactile-genesis" target="_blank" rel="noopener">
           <span class="ico">&#9679;</span> Code
         </a>
         <a class="btn" href="#video">
@@ -134,32 +118,34 @@
         task and an object variant to load it.
       </p>
       <div class="rollout">
-        <div class="rollout__row">
-          <span class="rollout__label">In-hand repose &middot; Wuji</span>
-          <button class="rollout__pick" type="button" aria-pressed="true"
-                  data-src="static/rollouts/in_hand_repose-wuji-cube.html">Cube</button>
-          <button class="rollout__pick" type="button" aria-pressed="false"
-                  data-src="static/rollouts/in_hand_repose-wuji-tall-box.html">Tall box</button>
-          <button class="rollout__pick" type="button" aria-pressed="false"
-                  data-src="static/rollouts/in_hand_repose-wuji-cylinder.html">Cylinder</button>
-        </div>
-        <div class="rollout__row">
-          <span class="rollout__label">In-fingers rotate &middot; Sharpa</span>
-          <button class="rollout__pick" type="button" aria-pressed="false"
-                  data-src="static/rollouts/in_fingers_rotate-sharpa-cube.html">Cube</button>
-          <button class="rollout__pick" type="button" aria-pressed="false"
-                  data-src="static/rollouts/in_fingers_rotate-sharpa-tall-box.html">Tall box</button>
-          <button class="rollout__pick" type="button" aria-pressed="false"
-                  data-src="static/rollouts/in_fingers_rotate-sharpa-cylinder.html">Cylinder</button>
-        </div>
-        <div class="rollout__row">
-          <span class="rollout__label">Grasp and lift &middot; Allegro</span>
-          <button class="rollout__pick" type="button" aria-pressed="false"
-                  data-src="static/rollouts/grasp_lift-allegro-cube.html">Cube</button>
-          <button class="rollout__pick" type="button" aria-pressed="false"
-                  data-src="static/rollouts/grasp_lift-allegro-tall-box.html">Tall box</button>
-          <button class="rollout__pick" type="button" aria-pressed="false"
-                  data-src="static/rollouts/grasp_lift-allegro-cylinder.html">Cylinder</button>
+        <div class="rollout__picker">
+          <div class="rollout__row">
+            <span class="rollout__label">In-hand repose &middot; Wuji</span>
+            <button class="rollout__pick" type="button" aria-pressed="true"
+                    data-src="static/rollouts/in_hand_repose-wuji-cube.html">Cube</button>
+            <button class="rollout__pick" type="button" aria-pressed="false"
+                    data-src="static/rollouts/in_hand_repose-wuji-tall-box.html">Tall box</button>
+            <button class="rollout__pick" type="button" aria-pressed="false"
+                    data-src="static/rollouts/in_hand_repose-wuji-cylinder.html">Cylinder</button>
+          </div>
+          <div class="rollout__row">
+            <span class="rollout__label">In-fingers rotate &middot; Sharpa</span>
+            <button class="rollout__pick" type="button" aria-pressed="false"
+                    data-src="static/rollouts/in_fingers_rotate-sharpa-cube.html">Cube</button>
+            <button class="rollout__pick" type="button" aria-pressed="false"
+                    data-src="static/rollouts/in_fingers_rotate-sharpa-tall-box.html">Tall box</button>
+            <button class="rollout__pick" type="button" aria-pressed="false"
+                    data-src="static/rollouts/in_fingers_rotate-sharpa-cylinder.html">Cylinder</button>
+          </div>
+          <div class="rollout__row">
+            <span class="rollout__label">Grasp and lift &middot; Allegro</span>
+            <button class="rollout__pick" type="button" aria-pressed="false"
+                    data-src="static/rollouts/grasp_lift-allegro-cube.html">Cube</button>
+            <button class="rollout__pick" type="button" aria-pressed="false"
+                    data-src="static/rollouts/grasp_lift-allegro-tall-box.html">Tall box</button>
+            <button class="rollout__pick" type="button" aria-pressed="false"
+                    data-src="static/rollouts/grasp_lift-allegro-cylinder.html">Cylinder</button>
+          </div>
         </div>
         <div class="rollout__stage">
           <iframe class="rollout__frame" title="Interactive policy rollout" loading="lazy"
@@ -234,13 +220,11 @@
   <section class="section section--alt">
     <div class="container container--narrow">
       <h2>BibTeX</h2>
-      <pre class="bibtex"><code>@article{chung2026tactilegenesis,
+      <pre class="bibtex"><code>@article{anonymous2026tactilegenesis,
   title     = {Tactile Genesis: Exploring Tactile Sensors at Scale
                for Learning Dexterous Tasks},
-  author    = {Chung, Trinity and Yamazaki, Kashu and Patel, Dhruv and
-               Duburcq, Alexis and Qiao, Yiling and
-               Fragkiadaki, Katerina and Nayebi, Aran},
-  journal   = {arXiv preprint arXiv:2606.22332},
+  author    = {Anonymous},
+  note      = {Under review},
   year      = {2026}
 }</code></pre>
     </div>

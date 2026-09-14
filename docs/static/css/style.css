@@ -92,6 +92,12 @@ code {
   margin-bottom: 18px;
 }
 
+.anon {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
 .venue {
   display: inline-block;
   font-weight: 700;
@@ -265,8 +271,17 @@ figcaption {
 
 /* ---- interactive teacher rollouts ---- */
 .rollout__intro { max-width: var(--narrow); margin: 0 0 20px; }
+.rollout { display: grid; gap: 22px; }
 .rollout__row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
 .rollout__label { flex: 0 0 210px; font-weight: 600; font-size: 0.92rem; }
+/* Side by side once there is room for the viewer to stay usefully wide. */
+@media (min-width: 900px) {
+  .rollout { grid-template-columns: minmax(250px, 290px) 1fr; align-items: start; }
+  .rollout__row { display: block; margin-bottom: 18px; }
+  .rollout__label { display: block; margin-bottom: 8px; }
+  .rollout__pick { margin: 0 6px 6px 0; }
+  .rollout__stage { margin-top: 0; }
+}
 .rollout__pick {
   border: 1px solid var(--border);
   background: #fff;

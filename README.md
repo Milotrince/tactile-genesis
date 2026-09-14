@@ -4,7 +4,7 @@
 
 https://github.com/user-attachments/assets/9d8bb278-fbc8-41f4-b1b2-ab9ce572c294
 
-This repository reflects the self-contained code snapshot to reproduce the paper, [Tactile Genesis](https://arxiv.org/abs/2606.22332).
+This repository reflects the self-contained code snapshot to reproduce the paper, Tactile Genesis, which is under double-blind review.
 **Please note**, if you wish to use tactile sensors for your own project, use the latest [Genesis World](https://github.com/Genesis-Embodied-AI/genesis-world) physics engine which includes our tactile sensors,
 and optionally, the official [Eden](https://github.com/embodied-ai-nexus/Eden) (not yet available, but will be released before end of 2026) if you require a managed learning framework.
 
@@ -50,11 +50,10 @@ See [`dexterous-hands/README.md`](dexterous-hands/README.md) for the full task/r
 If you use or reference our simulated tactile sensors in any way, please cite:
 
 ```bibtex
-@article{chung2026tactilegenesis,
+@article{anonymous2026tactilegenesis,
   title   = {Tactile Genesis: Exploring Tactile Sensors at Scale for Learning Dexterous Tasks},
-  author  = {Chung, Trinity and Yamazaki, Kashu and Patel, Dhruv and Duburcq, Alexis and Qiao, Yiling and Fragkiadaki, Katerina and Nayebi, Aran},
-  journal = {arXiv preprint arXiv:2606.22332},
-  year    = {2026},
-  url     = {https://arxiv.org/abs/2606.22332}
+  author  = {Anonymous},
+  note    = {Under review},
+  year    = {2026}
 }
 ```
