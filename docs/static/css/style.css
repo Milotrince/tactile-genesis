@@ -375,6 +375,7 @@ figcaption {
 .abl-ref { stroke-width: 1.6; }
 .abl-ref--base { stroke: var(--abl-base); }
 .abl-ref--teacher { stroke: var(--abl-teacher); stroke-dasharray: 4 4; }
+.abl-grid { stroke: var(--abl-grid); stroke-width: 1; }
 .abl-line { fill: none; stroke-width: 2; }
 .abl-point { stroke: #fff; stroke-width: 1.5; }
 /* Paths keep fill:none from .abl-line; only the point markers take the hue as a fill. */
@@ -402,4 +403,3 @@ circle.abl-line--base { fill: var(--abl-base); }
 .abl__table caption { text-align: left; color: var(--muted); padding-bottom: 6px; font-size: 0.85rem; }
 .abl__table th, .abl__table td { border-bottom: 1px solid var(--border); padding: 5px 14px 5px 0; text-align: left; }
 .abl__table tbody th { font-weight: 500; }
-
